@@ -886,8 +886,11 @@ function runBenders(optimality_gap, time_limit, primal_vs_dual, pareto, run_mip_
 end
 
 #------------ RUN BENDERS ALGORITHM ------------#
-optimality_gap = 1e-4
+#Comment the last line of run_optimization.jl before running !
+
+optimality_gap = 1e-4 #Increase it makes the algorithm converge faster (but solution might be far from optimum), reducing it makes the solution better (but increases runtime)
 time_limit = 3600
-pareto = true
-run_mip_check = false
+pareto = true #true to use Pareto-optimal cuts, false not to
+run_mip_check = false #First run the MILP model to perform sanity check at the end? Only enable for small size settings ! otherwise the MILP itself will take long
+
 runBenders(optimality_gap, time_limit, "PRIMAL", pareto, run_mip_check)
