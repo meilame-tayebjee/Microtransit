@@ -95,10 +95,11 @@ function run_opti(nb_iter, deltas, radiuses)
             try
                 for iter in 1:nb_iter
                     #-------------------------------------GENERATE SETTING-------------------------------------#
+                    #Replace "python" by "python3" if needed
                     if setting == "CROSS"
-                        run(`/Users/Meilame/opt/anaconda3/bin/python generate_cross.py $RADIUS $SAMPLE_SIZE $DELTA $DELTA2 $iter`)
+                        run(`python generate_cross.py $RADIUS $SAMPLE_SIZE $DELTA $DELTA2 $iter`)
                     elseif setting == "LINEAR_EXPANSION"
-                        run(`/Users/Meilame/opt/anaconda3/bin/python generate_linear.py $RADIUS $SAMPLE_SIZE $DELTA $DELTA2 $iter`)
+                        run(`python generate_linear.py $RADIUS $SAMPLE_SIZE $DELTA $DELTA2 $iter`)
                     end
 
                     #-----------------------------------GENERATE NETWORKS-----------------------------------# 
